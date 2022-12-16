@@ -15,11 +15,26 @@ export class PrismaNotificationsRepository implements NotificationsRepository {
     });
   }
 
-  async findById(id: string): Promise<Notification | null> {
+  async findById(notificationId: string): Promise<Notification | null> {
+    const notification = await this.prismaService.notification.findUnique({
+      where: {
+        id: notificationId,
+      },
+    });
+
+    if (!notification) return null;
+
+    return PrismaNotificationMapper.toDomain(notification);
+  }
+
+  async save(notification: Notification): Promise<void> {
     throw new Error('Method not implemented.');
   }
 
-  save(notification: Notification): Promise<void> {
+  async countManyByRecipientId(recipientId: string): Promise<number> {
+    throw new Error('Method not implemented.');
+  }
+  async findManyByRecipientId(recipientId: string): Promise<Notification[]> {
     throw new Error('Method not implemented.');
   }
 }
