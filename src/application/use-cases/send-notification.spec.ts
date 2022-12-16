@@ -10,7 +10,7 @@ describe('Send notification', () => {
     sendNotification = new SendNotification(notificationsRepository);
   });
 
-  test('it should be able to send a notification', async () => {
+  it('it should be able to send a notification', async () => {
     const { notification } = await sendNotification.execute({
       content: 'Nova solicitacao de amizade',
       category: 'social',
