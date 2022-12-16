@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 
 import { Content } from './content';
-import { Replace } from '../../helpers/Replace';
+import { Replace } from '@helpers/Replace';
 
 export interface NotificationProps {
   recipientId: string;
